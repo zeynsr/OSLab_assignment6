@@ -1,15 +1,15 @@
 WORDS_BANK=[]
 def load_data():
-    print('loading...')
+    print('loading...⏳')
     try:
         with open('words_bank.txt','r') as f:
             big_text=f.read()
             words=big_text.split('\n')
             for i in range(0,len(words),2):
                 WORDS_BANK.append({'en':words[i],'pr':words[i+1]})
-        print('loaded')
+        print('loaded📑')
     except:
-        print("An Error Occurred While Opening File!")
+        print("An Error Occurred While Opening File!🚫")
 
 def translate_en2pr(input_text):
     user_words = input_text.split(' ')
@@ -42,7 +42,7 @@ def Add_new_word():
         for ew in WORDS_BANK:
             if e_word == ew['en']:
                 check = True
-                print('This word is already stored in the list')
+                print('This word is already stored in the list📄')
         if check == False:
             break
 
@@ -54,6 +54,7 @@ def save():
         for word in WORDS_BANK:
             f.write(word['en']+'\n')
             f.write(word['pr'] + '\n')
+    print('saved📦')        
 
 load_data()
 while True :
@@ -91,7 +92,7 @@ while True :
         Add_new_word()
 
     elif ch==4:
-        s=input('do you wanna save y/n :')
+        s=input('do you wanna save📥 y/n :')
         if s=='y':
             save()
             exit()
